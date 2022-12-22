@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "format": "prettier -w web/src",
+        "format": "prettier -w */src",
         "start": "npm-run-all -p start:frontend start:backend",
         "start:frontend": "cross-env PORT=5000 npm --prefix web start",
         "start:admin": "npm --prefix admin-ui start",
