@@ -1,6 +1,6 @@
 {
-  "short_name": "My service",
-  "name": "My service",
+  "short_name": "todo-service",
+  "name": "todo-service",
   "icons": [
     {
       "src": "favicon.ico",

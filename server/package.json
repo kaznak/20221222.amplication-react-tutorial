@@ -1,5 +1,5 @@
 {
-  "name": "@my-service/server",
+  "name": "@todo-service/server",
   "private": true,
   "scripts": {
     "start": "nest start",
