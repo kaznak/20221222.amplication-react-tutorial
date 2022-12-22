@@ -1,6 +1,6 @@
 {
     "scripts": {
         "start": "npm --prefix web start",
-        "postinstall": "npm i --prefix web"
+        "postinstall": "npm i --prefix web && npm i --prefix admin-ui && npm i --prefix server"
     }
 }
