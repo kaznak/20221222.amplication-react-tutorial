@@ -10,49 +10,35 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { InputType, Field } from "@nestjs/graphql";
+import { TaskWhereUniqueInput } from "../../task/base/TaskWhereUniqueInput";
 import { ApiProperty } from "@nestjs/swagger";
-import {
-  IsBoolean,
-  IsOptional,
-  IsString,
-  ValidateNested,
-} from "class-validator";
-import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
-import { Type } from "class-transformer";
 @InputType()
-class TaskCreateInput {
-  @ApiProperty({
-    required: false,
-    type: Boolean,
-  })
-  @IsBoolean()
-  @IsOptional()
-  @Field(() => Boolean, {
+class TaskUpdateManyWithoutUsersInput {
+  @Field(() => [TaskWhereUniqueInput], {
     nullable: true,
   })
-  completed?: boolean | null;
+  @ApiProperty({
+    required: false,
+    type: () => [TaskWhereUniqueInput],
+  })
+  connect?: Array<TaskWhereUniqueInput>;
 
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
+  @Field(() => [TaskWhereUniqueInput], {
     nullable: true,
   })
-  text?: string | null;
+  @ApiProperty({
+    required: false,
+    type: () => [TaskWhereUniqueInput],
+  })
+  disconnect?: Array<TaskWhereUniqueInput>;
 
-  @ApiProperty({
-    required: false,
-    type: () => UserWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => UserWhereUniqueInput)
-  @IsOptional()
-  @Field(() => UserWhereUniqueInput, {
+  @Field(() => [TaskWhereUniqueInput], {
     nullable: true,
   })
-  uid?: UserWhereUniqueInput | null;
+  @ApiProperty({
+    required: false,
+    type: () => [TaskWhereUniqueInput],
+  })
+  set?: Array<TaskWhereUniqueInput>;
 }
-export { TaskCreateInput };
+export { TaskUpdateManyWithoutUsersInput };
