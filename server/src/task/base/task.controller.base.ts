@@ -46,11 +46,27 @@ export class TaskControllerBase {
   @swagger.ApiForbiddenResponse({ type: errors.ForbiddenException })
   async create(@common.Body() data: TaskCreateInput): Promise<Task> {
     return await this.service.create({
-      data: data,
+      data: {
+        ...data,
+
+        uid: data.uid
+          ? {
+              connect: data.uid,
+            }
+          : undefined,
+      },
       select: {
+        completed: true,
         createdAt: true,
         id: true,
         text: true,
+
+        uid: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -71,9 +87,17 @@ export class TaskControllerBase {
     return this.service.findMany({
       ...args,
       select: {
+        completed: true,
         createdAt: true,
         id: true,
         text: true,
+
+        uid: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -95,9 +119,17 @@ export class TaskControllerBase {
     const result = await this.service.findOne({
       where: params,
       select: {
+        completed: true,
         createdAt: true,
         id: true,
         text: true,
+
+        uid: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
       },
     });
@@ -126,11 +158,27 @@ export class TaskControllerBase {
     try {
       return await this.service.update({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          uid: data.uid
+            ? {
+                connect: data.uid,
+              }
+            : undefined,
+        },
         select: {
+          completed: true,
           createdAt: true,
           id: true,
           text: true,
+
+          uid: {
+            select: {
+              id: true,
+            },
+          },
+
           updatedAt: true,
         },
       });
@@ -160,9 +208,17 @@ export class TaskControllerBase {
       return await this.service.delete({
         where: params,
         select: {
+          completed: true,
           createdAt: true,
           id: true,
           text: true,
+
+          uid: {
+            select: {
+              id: true,
+            },
+          },
+
           updatedAt: true,
         },
       });

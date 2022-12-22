@@ -19,12 +19,14 @@ import { TaskService } from "../task.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
+  completed: "true",
   createdAt: new Date(),
   id: "exampleId",
   text: "exampleText",
   updatedAt: new Date(),
 };
 const CREATE_RESULT = {
+  completed: "true",
   createdAt: new Date(),
   id: "exampleId",
   text: "exampleText",
@@ -32,6 +34,7 @@ const CREATE_RESULT = {
 };
 const FIND_MANY_RESULT = [
   {
+    completed: "true",
     createdAt: new Date(),
     id: "exampleId",
     text: "exampleText",
@@ -39,6 +42,7 @@ const FIND_MANY_RESULT = [
   },
 ];
 const FIND_ONE_RESULT = {
+  completed: "true",
   createdAt: new Date(),
   id: "exampleId",
   text: "exampleText",
